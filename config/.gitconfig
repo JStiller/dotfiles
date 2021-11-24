@@ -1,0 +1,10 @@
+[user]
+	name = José Stiller
+	email = JStiller@users.noreply.github.com
+	signingkey = D1838BFE898D3834
+[core]
+	excludesFile = ~/.gitignore
+[commit]
+	gpgsign = true
+[gpg]
+	program = /usr/bin/gpg
