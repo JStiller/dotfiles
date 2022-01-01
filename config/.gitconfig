@@ -1,7 +1,7 @@
 [user]
 	name = José Stiller
 	email = JStiller@users.noreply.github.com
-	signingkey = D1838BFE898D3834
+	signingkey = 379DC117837A43BC
 [core]
 	excludesFile = ~/.gitignore
 [commit]
