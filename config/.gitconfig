@@ -1,10 +1,50 @@
-[user]
-	name = José Stiller
-	email = JStiller@users.noreply.github.com
-	signingkey = 379DC117837A43BC
+[alias]
+a = "!git status --short | peco | awk '{print $2}' | xargs git add"
+amend = "!git log -n 1 --pretty=tformat:%s%n%n%b | git commit -F - --amend"
+ba = "branch -a"
+br = "branch"
+bm = "branch --merged"
+bn = "branch --no-merged"
+ca = "commit -a"
+ci = "commit"
+co = "checkout"
+cur = "!git branch --contains HEAD | grep '*' | tr -s ' ' | cut -d ' ' -f2"
+d = "diff"
+df = "!git hist | peco | awk '{print $2}' | xargs -I {} git diff {}^ {}"
+find = "!f() { git log --pretty=format:\"%h %cd [%cn] %s%d\" --date=relative -S'pretty' -S\"$@\" | peco | awk '{print $1}' | xargs -I {} git diff {}^ {}; }; f"
+fix = "commit --fixup=HEAD"
+hist = "log --pretty=format:\"%Cgreen%h %Creset%cd %Cblue[%cn] %Creset%s%C(yellow)%d%C(reset)\" --graph --date=relative --decorate --all"
+llog = "log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative"
+pl = "!git pull --ff-only origin $(git rev-parse --abbrev-ref HEAD)"
+ps = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
+pull = "pull --ff-only"
+st = "status"
+tags = "tag -l"
 [core]
-	excludesFile = ~/.gitignore
+excludesFile = ~/.gitignore
+editor = code --wait
+[color]
+status = auto
+diff = auto
+branch = auto
+interactive = auto
+grep = auto
+ui = auto
 [commit]
-	gpgsign = true
+gpgsign = true
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+[merge]
+  tool = vscode
+[mergetool "vscode"]
+  cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+[github]
+user = JStiller
 [gpg]
-	program = /usr/bin/gpg
+program = /usr/bin/gpg
+[user]
+name = José Stiller
+email = JStiller@users.noreply.github.com
+signingkey = D1838BFE898D3834

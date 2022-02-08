@@ -17,6 +17,7 @@ install curl
 install git
 add-apt-repository -y ppa:aacebedo/fasd >>/dev/null && apt-get update >>/dev/null && apt-get install fasd >>/dev/null && echo -e "install fasd ${SYMBOL_DONE}" || echo -e "install fasd ${SYMBOL_ABORT}"
 install fzf
+install peco
 
 echo ""
 echo "required for kotlin"
