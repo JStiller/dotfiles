@@ -33,13 +33,13 @@ ui = auto
 [commit]
 gpgsign = true
 [diff]
-  tool = vscode
+tool = vscode
 [difftool "vscode"]
-  cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
+cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\"
 [merge]
-  tool = vscode
+tool = vscode
 [mergetool "vscode"]
-  cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+cmd = code --wait --diff \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 [github]
 user = JStiller
 [gpg]
