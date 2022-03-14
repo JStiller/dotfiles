@@ -1,11 +1,8 @@
 #!/bin/bash
 
-source ./variables/colors.sh
-source ./variables/symbols.sh
-source ./functions/environment.sh
-source ./functions/install.sh
-
-LOCATION=$(pwd)
+source $PWD/variables/utils.sh
+source $PWD/functions/environment.sh
+source $PWD/functions/install.sh
 
 echo -e "Desired environment: ${ENVIRONMENT}"
 
@@ -15,7 +12,7 @@ fi
 
 install curl
 install git
-add-apt-repository -y ppa:aacebedo/fasd >>/dev/null && apt-get update >>/dev/null && apt-get install fasd >>/dev/null && echo -e "install fasd ${SYMBOL_DONE}" || echo -e "install fasd ${SYMBOL_ABORT}"
+add-apt-repository -y ppa:aacebedo/fasd >>/dev/null && apt-get update >>/dev/null && apt-get install fasd >>/dev/null && echo -e "install fasd ${UTILS_DONE}" || echo -e "install fasd ${UTILS_ABORT}"
 install fzf
 install peco
 
@@ -42,14 +39,14 @@ install libzip-dev
 echo ""
 echo "set config"
 if test ! -f "$HOME/.gitconfig"; then
-    ln -sr $LOCATION/config/.gitconfig $HOME/.gitconfig && echo -e "gitconfig ${SYMBOL_DONE}" || echo -e "gitconfig ${SYMBOL_ABORT}"
+    ln -sr $PWD/config/.gitconfig $HOME/.gitconfig && echo -e "gitconfig ${UTILS_DONE}" || echo -e "gitconfig ${UTILS_ABORT}"
 else
     echo "skipped .gitconfig"
 fi
 
 echo "set config"
 if test ! -f "$HOME/.gitignore"; then
-    ln -sr $LOCATION/config/.gitignore $HOME/.gitignore && echo -e "gitignore ${SYMBOL_DONE}" || echo -e "gitignore ${SYMBOL_ABORT}"
+    ln -sr $PWD/config/.gitignore $HOME/.gitignore && echo -e "gitignore ${UTILS_DONE}" || echo -e "gitignore ${UTILS_ABORT}"
 else
     echo "skipped .gitignore"
 fi

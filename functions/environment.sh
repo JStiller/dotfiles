@@ -1,3 +1,7 @@
+#!/bin/bash
+
+source $PWD/variables/utils.sh
+
 ### ENVIRONMENT #########################################
 
 if [[ -z "${1+x}" ]]
@@ -10,7 +14,7 @@ fi
 
 if [[ $ENVIRONMENT != ubuntu ]] && [[ $ENVIRONMENT != mac ]]
     then
-        echo -e "${COLOR_WARNING}The desired enivronment is not supported."
-        echo -e "We do support \"ubuntu\" and \"mac\".${COLOR_CLOSE}"
+        echo $(warning "The desired enivronment is not supported.")
+        echo $(warning "We do support \"ubuntu\" and \"mac\".")
         exit
 fi
