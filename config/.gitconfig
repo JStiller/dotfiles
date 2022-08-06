@@ -23,6 +23,7 @@ tags = "tag -l"
 [core]
 excludesFile = ~/.gitignore
 editor = code --wait
+hooksPath = ~/hooks/
 [color]
 status = auto
 diff = auto
