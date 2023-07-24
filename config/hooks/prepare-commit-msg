@@ -100,16 +100,23 @@ function prompt_for_multiselect {
 
 exec < /dev/tty
 
-echo 'Please  select from the authors list:'
+CURRENT_AUTHOR=$(git config user.name)
 AUTHORS=$(git shortlog -sce | cut -c8-)
 AUTHORS_LIST=()
 
 while read -r line; do
-    if ! [[ "$line" =~ ^.*\|.*$ ]]; then
+    if ! [[ "$line" =~ ^.*\|.*$ ]] && [[ "$line" != *"$CURRENT_AUTHOR"* ]]; then
         AUTHORS_LIST+=("${line}")
         OPTIONS_STRING+="${line};"
     fi
 done <<< "$AUTHORS"
+
+if [ ${#AUTHORS_LIST[@]} -eq 0 ]; then
+  echo '\n\nNo Co-Author found.\n\n'
+  exit 0
+fi
+
+echo 'Please  select from the authors list:'
 
 prompt_for_multiselect SELECTED "$OPTIONS_STRING"
 MESSAGE="\n\n"
