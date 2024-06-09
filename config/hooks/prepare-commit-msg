@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source $PWD/variables/colors.sh
+source $HOME/.dotfiles/variables/colors.sh
 
 function prompt_for_multiselect {
 

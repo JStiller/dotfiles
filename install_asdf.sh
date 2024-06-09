@@ -1,7 +1,7 @@
 #!/bin/bash
 
-source $PWD/variables/utils.sh
-source $PWD/functions/environment.sh
+source $HOME/.dotfiles/variables/utils.sh
+source $HOME/.dotfiles/functions/environment.sh
 
 if [[ $ENVIRONMENT == ubuntu ]]; then
     git clone -q https://github.com/asdf-vm/asdf.git $HOME/.asdf >>/dev/null && echo '. $HOME/.asdf/asdf.sh' >>$HOME/.bashrc && echo '. $HOME/.asdf/completions/asdf.bash' >>$HOME/.bashrc && echo -e "install asdf ${UTILS_DONE}" || echo -e "install asdf ${UTILS_ABORT}"
