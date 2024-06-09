@@ -100,6 +100,13 @@ function prompt_for_multiselect {
 
 exec < /dev/tty
 
+COMMIT_COUNT=$(git rev-list --count --all)
+
+if [ ${COMMIT_COUNT[@]} -eq 0 ]; then
+  echo '\n\nNo Co-Author found.\n\n'
+  exit 0
+fi
+
 CURRENT_AUTHOR=$(git config user.name)
 AUTHORS=$(git shortlog -sce | cut -c8-)
 AUTHORS_LIST=()
